@@ -4,34 +4,34 @@ import { bestSellingAssets, allImages } from '../assets';
 const products = [
   {
     id: 1,
-    name: "HAPPY DIAMONDS HORSE",
-    subtitle: "Pendant, Ethical Rose Gold Diamonds Sapphire",
+    name: "Happy diamonds horse",
+    subtitle: "Pendant, ethical rose gold, diamonds, sapphire",
     price: "$4,420.00",
-    image: bestSellingAssets[0] || allImages[0] || "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80",
+    image: bestSellingAssets[0] || allImages[0] || "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=80",
     isLiked: false,
   },
   {
     id: 2,
-    name: "HAPPY DIAMONDS FISH",
-    subtitle: "Pendant, Ethical Rose Gold Diamonds Sapphire",
+    name: "Happy diamonds fish",
+    subtitle: "Pendant, ethical rose gold, diamonds, sapphire",
     price: "$3,420.00",
-    image: bestSellingAssets[1] || allImages[1] || "https://images.unsplash.com/photo-1611591475879-11277a16f272?auto=format&fit=crop&w=600&q=80",
+    image: bestSellingAssets[1] || allImages[1] || "https://images.unsplash.com/photo-1611591475879-11277a16f272?auto=format&fit=crop&w=900&q=80",
     isLiked: false,
   },
   {
     id: 3,
-    name: "HAPPY DIAMONDS FISH",
-    subtitle: "Pendant, Ethical White Gold Diamonds Sapphire",
+    name: "Happy diamonds fish",
+    subtitle: "Pendant, ethical white gold, diamonds, sapphire",
     price: "$3,420.00",
-    image: bestSellingAssets[2] || allImages[2] || "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=600&q=80",
+    image: bestSellingAssets[2] || allImages[2] || "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=80",
     isLiked: false,
   },
   {
     id: 4,
-    name: "HAPPY GOLD RING",
-    subtitle: "Pendant, Ethical Rose Gold Diamonds Sapphire",
+    name: "Happy gold ring",
+    subtitle: "Pendant, ethical rose gold, diamonds, sapphire",
     price: "$2,890.00",
-    image: bestSellingAssets[3] || allImages[3] || "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=600&q=80",
+    image: bestSellingAssets[3] || allImages[3] || "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=900&q=80",
     isLiked: true,
   },
 ];
@@ -48,75 +48,72 @@ export default function BestSelling() {
   };
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      {/* Header with Title and View All button */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+    <section className="py-20 px-4 sm:px-6 lg:px-8">
+      {/* Header with title and view-all link */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
         <div>
-          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-serif font-normal text-neutral-900 tracking-tight leading-tight">
-            Best Selling Products
+          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-serif font-normal text-neutral-900 tracking-tight leading-tight">
+            Best selling products
           </h2>
           <p className="mt-3 text-sm sm:text-base text-neutral-500 max-w-xl font-light leading-relaxed">
             Elevate your style with our best-selling jewelry collection. Timeless designs, premium quality, and unmatched craftsmanship.
           </p>
         </div>
 
-        <button className="self-start md:self-auto px-6 py-2.5 rounded-full border border-neutral-300 text-xs tracking-wider uppercase font-medium text-neutral-800 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition duration-300 shrink-0">
-          View All Collection
-        </button>
+        <a
+          href="#collection"
+          className="self-start md:self-auto px-7 py-3 border border-neutral-900 text-xs tracking-wider uppercase font-medium text-neutral-900 hover:bg-neutral-900 hover:text-white transition duration-300 shrink-0"
+        >
+          View all collection
+        </a>
       </div>
 
-      {/* 4-Column Product Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7">
+      {/* Product grid: large full-bleed images, square corners */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3">
         {items.map((product) => (
-          <div
-            key={product.id}
-            className="group relative flex flex-col bg-white rounded-2xl overflow-hidden border border-neutral-100 hover:border-neutral-300 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_-6px_rgba(0,0,0,0.08)] transition-all duration-300"
-          >
-            {/* Image Container */}
-            <div className="relative aspect-[3/4] bg-[#f7f6f2] overflow-hidden flex items-center justify-center p-4">
+          <article key={product.id} className="group flex flex-col">
+            <div className="relative aspect-[4/5] bg-neutral-200 overflow-hidden">
+              {/* Slight zoom crops the black bars baked into some photos */}
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
+                className="absolute inset-0 w-full h-full object-cover scale-[1.12] group-hover:scale-[1.18] transition-transform duration-700 ease-out"
               />
 
-              {/* Wishlist Heart Icon */}
               <button
                 onClick={() => toggleLike(product.id)}
-                aria-label="Add to wishlist"
-                className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/85 backdrop-blur-sm flex items-center justify-center text-neutral-700 hover:text-rose-600 transition shadow-xs"
+                aria-label={product.isLiked ? 'Remove from wishlist' : 'Add to wishlist'}
+                className="absolute top-4 right-4 w-10 h-10 bg-white/90 flex items-center justify-center text-neutral-800 hover:text-rose-600 transition"
               >
                 <svg
-                  className={`w-4 h-4 ${product.isLiked ? 'fill-rose-500 text-rose-500' : 'fill-none stroke-current stroke-2'}`}
+                  className={`w-5 h-5 ${product.isLiked ? 'fill-rose-500 text-rose-500' : 'fill-none stroke-current stroke-2'}`}
                   viewBox="0 0 24 24"
                 >
                   <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                 </svg>
               </button>
 
-              {/* Quick Add Overlay on Hover */}
-              <div className="absolute inset-x-4 bottom-4 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                <button className="w-full py-2.5 rounded-full bg-neutral-900/90 backdrop-blur-sm text-white text-xs font-medium tracking-wide hover:bg-neutral-950 transition shadow-md">
-                  Quick Add
+              <div className="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <button className="w-full py-4 bg-neutral-900 text-white text-xs font-medium tracking-wider uppercase hover:bg-neutral-800 transition">
+                  Quick add
                 </button>
               </div>
             </div>
 
-            {/* Product Meta */}
-            <div className="p-4 sm:p-5 flex flex-col items-center text-center">
-              <h3 className="font-serif text-[14px] sm:text-[15px] font-semibold tracking-wider text-neutral-900 line-clamp-1 uppercase">
-                {product.name}
-              </h3>
-              <p className="text-[11px] text-neutral-500 font-light mt-1 line-clamp-1">
-                {product.subtitle}
-              </p>
-              <div className="mt-2 flex items-center gap-2">
-                <span className="text-sm font-semibold text-neutral-900">
-                  {product.price}
-                </span>
+            <div className="pt-4 pb-2 flex items-start justify-between gap-4">
+              <div className="min-w-0">
+                <h3 className="font-serif text-lg text-neutral-900 leading-snug truncate">
+                  {product.name}
+                </h3>
+                <p className="text-xs text-neutral-500 font-light mt-1 truncate">
+                  {product.subtitle}
+                </p>
               </div>
+              <span className="text-sm font-medium text-neutral-900 shrink-0">
+                {product.price}
+              </span>
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </section>

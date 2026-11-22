@@ -4,83 +4,81 @@ import { collectionAssets, allImages } from '../assets';
 const collections = [
   {
     id: 1,
-    title: "WATCHES",
-    image: collectionAssets[0] || allImages[4] || "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80",
-    desc: "Precision engineering meets timeless haute horlogerie.",
-    linkText: "View Offer",
+    title: "Watches",
+    image: collectionAssets[0] || allImages[4] || "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80",
+    desc: "Timeless haute horlogerie.",
   },
   {
     id: 2,
-    title: "JEWELRY",
-    image: collectionAssets[1] || allImages[5] || "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80",
-    desc: "Sculpted solitaires and dazzling pavé diamond bands.",
-    linkText: "View Offer",
+    title: "Jewelry",
+    image: collectionAssets[1] || allImages[5] || "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=80",
+    desc: "Solitaires and pavé bands.",
   },
   {
     id: 3,
-    title: "ACCESSORIES",
-    image: collectionAssets[2] || allImages[6] || "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80",
-    desc: "Rare artisanal essences formulated for everlasting memory.",
-    linkText: "View Offer",
+    title: "Accessories",
+    image: collectionAssets[2] || allImages[6] || "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=900&q=80",
+    desc: "Rare artisanal essences.",
   },
   {
     id: 4,
-    title: "LUXURY DRESS",
-    image: collectionAssets[3] || allImages[7] || "https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=600&q=80",
-    desc: "Haute couture evening gowns crafted with refined handwork.",
-    linkText: "View Offer",
+    title: "Luxury dress",
+    image: collectionAssets[3] || allImages[7] || "https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=900&q=80",
+    desc: "Hand-finished evening gowns.",
   },
 ];
 
 export default function Collection() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+    <section className="py-24 lg:py-32 px-5 sm:px-8 lg:px-12">
+      {/* Header with title and view-all link */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 lg:mb-16 gap-6">
         <div>
-          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-serif font-normal text-neutral-900 tracking-tight leading-tight">
-            Exploring Li Veblall Creation
+          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-serif font-normal text-neutral-900 tracking-tight leading-tight">
+            Exploring Caravelle creations
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-neutral-500 max-w-xl font-light leading-relaxed">
+          <p className="mt-4 text-sm sm:text-base text-neutral-500 max-w-xl font-light leading-relaxed">
             Explore refined designs crafted with precision and premium materials. Timeless beauty made to be treasured for generations.
           </p>
         </div>
 
-        <button className="self-start md:self-auto px-6 py-2.5 rounded-full border border-neutral-300 text-xs tracking-wider uppercase font-medium text-neutral-800 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition duration-300 shrink-0">
-          View All Collection
-        </button>
+        <a
+          href="#collection"
+          className="self-start md:self-auto px-7 py-3 border border-neutral-900 text-xs tracking-wider uppercase font-medium text-neutral-900 hover:bg-neutral-900 hover:text-white transition duration-300 shrink-0"
+        >
+          View all collection
+        </a>
       </div>
 
-      {/* 4 Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7">
+      {/* Category grid: image only, details slide up on hover */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-5">
         {collections.map((item) => (
-          <div
+          <a
             key={item.id}
-            className="group relative rounded-2xl overflow-hidden aspect-[3/4.2] bg-neutral-900 shadow-md hover:shadow-2xl transition-all duration-500"
+            href="#collection"
+            aria-label={`${item.title}: ${item.desc}`}
+            className="group relative block aspect-[4/5] bg-neutral-200 overflow-hidden outline-none focus-visible:ring-1 focus-visible:ring-neutral-900 focus-visible:ring-offset-4"
           >
-            {/* Asset Image */}
+            {/* Slight zoom crops the black bars baked into some photos */}
             <img
               src={item.image}
-              alt={item.title}
-              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-[0.9] group-hover:brightness-[0.95]"
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover scale-[1.12]"
             />
 
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent transition-opacity duration-300" />
-
-            {/* Content Bottom Overlay */}
-            <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col items-center text-center">
-              <h3 className="font-serif text-xl sm:text-2xl text-white font-normal tracking-wider drop-shadow-sm uppercase">
-                {item.title}
-              </h3>
-              <p className="text-xs text-neutral-300 font-light mt-1.5 opacity-90 line-clamp-2 max-w-[200px]">
-                {item.desc}
-              </p>
-              <button className="mt-4 px-5 py-1.5 rounded-full bg-white/20 hover:bg-white text-white hover:text-neutral-900 text-[11px] tracking-wider uppercase font-medium backdrop-blur-md border border-white/30 transition duration-300">
-                {item.linkText}
-              </button>
+            {/* Hover panel (always shown on touch screens) */}
+            <div className="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 group-focus-visible:translate-y-0 [@media(hover:none)]:translate-y-0 transition-transform duration-300 ease-out">
+              <div className="bg-neutral-950 text-white px-6 py-5 flex items-center justify-between gap-4">
+                <div className="min-w-0">
+                  <h3 className="font-serif text-xl leading-snug truncate">{item.title}</h3>
+                  <p className="text-xs text-neutral-400 font-light mt-1 truncate">{item.desc}</p>
+                </div>
+                <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 12h14m-5-5l5 5-5 5" />
+                </svg>
+              </div>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </section>

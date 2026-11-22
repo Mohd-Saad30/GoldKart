@@ -3,7 +3,7 @@ import React from 'react';
 const advantages = [
   {
     id: 1,
-    title: "Free Worldwide Shipping",
+    title: "Free worldwide shipping",
     description: "Complimentary express delivery & insurance on all orders over $150.",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -13,7 +13,7 @@ const advantages = [
   },
   {
     id: 2,
-    title: "100% Certified Authentic",
+    title: "Certified authentic",
     description: "Every diamond and gemstone is ethically sourced with certified grading.",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -23,7 +23,7 @@ const advantages = [
   },
   {
     id: 3,
-    title: "24/7 Concierge Support",
+    title: "24/7 concierge support",
     description: "Dedicated jewelry specialists available around the clock to assist you.",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -33,7 +33,7 @@ const advantages = [
   },
   {
     id: 4,
-    title: "30-Day Hassle-Free Returns",
+    title: "30-day easy returns",
     description: "Enjoy effortless returns or exchanges with prepaid insured shipping labels.",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -45,26 +45,29 @@ const advantages = [
 
 export default function Advantages() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200/60">
-      <div className="text-center max-w-2xl mx-auto mb-16">
-        <h2 className="text-3xl sm:text-4xl font-serif font-normal text-neutral-900 tracking-tight">
-          Online Store Advantages
+    <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <div className="mb-10">
+        <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-serif font-normal text-neutral-900 tracking-tight leading-tight">
+          Online store advantages
         </h2>
-        <p className="mt-3 text-sm text-neutral-500 font-light leading-relaxed">
+        <p className="mt-3 text-sm sm:text-base text-neutral-500 font-light leading-relaxed max-w-xl">
           From secure checkout to reliable delivery, enjoy a smooth shopping journey with transparent policies and exceptional care.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-10 border-y border-neutral-200 py-12">
         {advantages.map((item) => (
-          <div key={item.id} className="flex flex-col items-center text-center group">
-            <div className="w-14 h-14 rounded-full bg-neutral-100 border border-neutral-200/80 flex items-center justify-center text-neutral-800 group-hover:bg-neutral-900 group-hover:text-amber-300 group-hover:border-neutral-900 transition-all duration-300 mb-5">
+          <div
+            key={item.id}
+            className="group flex flex-col items-center text-center px-6 lg:border-r lg:last:border-r-0 border-neutral-200"
+          >
+            <div className="text-neutral-900 mb-5 transition-transform duration-500 group-hover:-translate-y-1">
               {item.icon}
             </div>
-            <h3 className="font-serif text-lg font-medium text-neutral-900 tracking-wide mb-2">
+            <h3 className="font-serif text-sm tracking-[0.18em] uppercase text-neutral-900 mb-2">
               {item.title}
             </h3>
-            <p className="text-xs text-neutral-500 font-light leading-relaxed max-w-[220px]">
+            <p className="text-xs text-neutral-500 font-light leading-relaxed max-w-[240px]">
               {item.description}
             </p>
           </div>

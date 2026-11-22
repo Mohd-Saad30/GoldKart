@@ -1,58 +1,39 @@
 import React from 'react';
+import { allImages } from '../assets';
 
 export default function Giveaway() {
+  const necklace = allImages[2] || "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=80";
+
   return (
-    <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-[#0a231c] via-[#0f2e26] to-[#0a231c] border border-emerald-900/40 shadow-2xl">
-        {/* Subtle decorative gold sparkle / ambient light */}
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+    <section className="px-4 sm:px-6 lg:px-8 py-6">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] bg-[#0f3b38] text-white overflow-hidden">
+        {/* Product image */}
+        <div className="relative min-h-[300px] sm:min-h-[380px] lg:min-h-[440px] overflow-hidden group">
+          <img
+            src={necklace}
+            alt="Diamond pendant necklace"
+            className="absolute inset-0 w-full h-full object-cover scale-[1.12] group-hover:scale-[1.18] transition-transform duration-1000 ease-out"
+          />
+        </div>
 
-        <div className="relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center p-8 sm:p-12 lg:p-16">
-          {/* Left Column: Sparking Diamonds Display */}
-          <div className="md:col-span-5 flex items-center justify-center gap-6">
-            <div className="relative flex flex-col items-center">
-              <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl bg-black/40 backdrop-blur-md p-3 border border-white/10 flex items-center justify-center shadow-inner group">
-                <img
-                  src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=400&q=80"
-                  alt="Diamond Solitaire Necklace"
-                  className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+        {/* Copy */}
+        <div className="flex flex-col justify-center gap-6 p-8 sm:p-12 lg:p-16">
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight leading-[1.05]">
+            The ultimate diamond <span className="font-script text-5xl sm:text-6xl lg:text-7xl text-[#e9d9b4] whitespace-nowrap">Giveaway</span>
+          </h2>
+          <p className="text-sm text-white/70 font-light leading-relaxed max-w-xl">
+            Enter to win our handcrafted designer necklace worth $5,000. Plus, all orders over $250 receive a complimentary matching gift.
+          </p>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+            <div className="px-5 py-3 border border-white/30 text-xs tracking-wider text-white/80">
+              Use code <span className="text-white font-medium tracking-[0.2em] ml-1">DIAMOND</span> at checkout
             </div>
-
-            <div className="relative flex flex-col items-center">
-              <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl bg-black/40 backdrop-blur-md p-3 border border-white/10 flex items-center justify-center shadow-inner group">
-                <img
-                  src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80"
-                  alt="Diamond Stud Earrings"
-                  className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Promotional Copy */}
-          <div className="md:col-span-7 text-center md:text-left">
-            <div className="inline-block px-3.5 py-1 rounded-full bg-emerald-800/40 border border-emerald-500/30 text-[11px] font-medium tracking-widest uppercase text-emerald-300 mb-4">
-              Limited Time Event
-            </div>
-
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight leading-tight">
-              The Ultimate Diamond <span className="font-script text-4xl sm:text-5xl lg:text-6xl text-amber-300 font-normal ml-1">Giveaway</span>
-            </h2>
-
-            <p className="mt-4 text-xs sm:text-sm text-emerald-100/80 font-light leading-relaxed max-w-lg">
-              Enter to win our handcrafted designer necklace WORTH $5,000. Plus, all orders over $250 receive a complimentary matching gift.
-            </p>
-
-            <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
-              <div className="px-5 py-2.5 rounded-full bg-emerald-950/70 border border-emerald-600/40 text-xs tracking-wider text-amber-200 font-medium">
-                Use code: <span className="font-bold text-white tracking-widest">DIAMOND</span> at checkout
-              </div>
-              <button className="px-6 py-2.5 rounded-full bg-amber-400 hover:bg-amber-300 text-neutral-950 text-xs font-semibold uppercase tracking-wider transition duration-300 shadow-md">
-                Claim Offer
-              </button>
-            </div>
+            <a
+              href="#collection"
+              className="px-7 py-3 bg-white text-[#0f3b38] hover:bg-[#e9d9b4] text-xs tracking-wider uppercase font-medium text-center transition duration-300"
+            >
+              Claim offer
+            </a>
           </div>
         </div>
       </div>

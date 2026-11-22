@@ -28,110 +28,112 @@ const faqs = [
   },
   {
     id: 5,
-    question: "What is your return and exchange policy?",
+    question: "Can I see a piece from the catalogue in person?",
     answer:
-      "We offer a 30-day complimentary return and exchange window on all non-customized pieces in their original condition and packaging. Return shipping within the US is entirely free.",
+      "Yes. Every piece in our catalogue can be viewed and tried on at our store. Get in touch before your visit and we'll have the pieces you're interested in ready for you.",
   },
 ];
 
 export default function FAQs() {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openId, setOpenId] = useState(faqs[0].id);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const toggleAccordion = (index) => {
-    setOpenIndex(openIndex === index ? -1 : index);
-  };
-
+  const query = searchQuery.trim().toLowerCase();
   const filteredFaqs = faqs.filter(
     (item) =>
-      item.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.answer.toLowerCase().includes(searchQuery.toLowerCase())
+      item.question.toLowerCase().includes(query) ||
+      item.answer.toLowerCase().includes(query)
   );
 
   const casketImage =
     faqsAsset ||
     allImages[10] ||
-    "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80";
+    "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1000&q=80";
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-        {/* Left Column: FAQ Accordion */}
-        <div className="lg:col-span-7">
-          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-serif font-normal text-neutral-900 tracking-tight leading-tight">
-            Frequently Asked
+    <section className="py-24 lg:py-32 px-5 sm:px-8 lg:px-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-stretch">
+        {/* FAQ list */}
+        <div>
+          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-serif font-normal text-neutral-900 tracking-tight leading-tight">
+            Frequently asked
             <br />
-            Questions
+            questions
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-neutral-500 font-light leading-relaxed max-w-xl">
-            Explore helpful information about our collections, craftsmanship, shipping, and services—all in one place.
+          <p className="mt-4 text-sm sm:text-base text-neutral-500 font-light leading-relaxed max-w-lg">
+            Explore helpful information about our collections, craftsmanship, and visiting our store, all in one place.
           </p>
 
-          {/* Search Bar */}
-          <div className="mt-8 flex items-center gap-3 max-w-xl">
-            <div className="relative flex-1">
-              <input
-                type="text"
-                placeholder="hello@yourmail.com"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-5 py-3 rounded-full border border-neutral-300 bg-white text-sm text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-1 focus:ring-neutral-800 transition"
-              />
-            </div>
-            <button className="px-6 py-3 rounded-full bg-neutral-900 hover:bg-neutral-800 text-white text-sm font-medium transition duration-200 shrink-0">
-              Get in Touch
-            </button>
+          {/* Search + contact */}
+          <div className="mt-8 flex items-stretch gap-3 max-w-lg">
+            <label htmlFor="faq-search" className="sr-only">Search questions</label>
+            <input
+              id="faq-search"
+              type="search"
+              placeholder="Search questions"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="flex-1 min-w-0 px-5 py-3 border border-neutral-300 bg-white text-sm text-neutral-800 placeholder-neutral-400 outline-none focus:border-neutral-900 transition"
+            />
+            <a
+              href="#contact"
+              className="flex items-center px-6 bg-neutral-900 hover:bg-neutral-800 text-white text-xs tracking-wider uppercase font-medium transition duration-200 shrink-0"
+            >
+              Get in touch
+            </a>
           </div>
 
-          {/* Accordion List */}
-          <div className="mt-10 divide-y divide-neutral-200/90 border-t border-b border-neutral-200/90">
-            {filteredFaqs.map((faq, index) => {
-              const isOpen = openIndex === index;
+          {/* Accordion */}
+          <div className="mt-10">
+            {filteredFaqs.length === 0 && (
+              <p className="py-6 text-sm text-neutral-500 font-light">
+                No questions match "{searchQuery}". Try another word, or get in touch.
+              </p>
+            )}
+            {filteredFaqs.map((faq) => {
+              const isOpen = openId === faq.id;
               return (
-                <div key={faq.id} className="py-4 sm:py-5">
+                <div key={faq.id} className="border-b border-neutral-200">
                   <button
-                    onClick={() => toggleAccordion(index)}
-                    className="w-full flex items-center justify-between text-left group"
+                    type="button"
+                    onClick={() => setOpenId(isOpen ? null : faq.id)}
+                    aria-expanded={isOpen}
+                    className="w-full flex items-center justify-between gap-4 py-5 text-left group"
                   >
-                    <span className="text-[15px] sm:text-base font-normal text-neutral-900 group-hover:text-amber-800 transition-colors">
+                    <span className="text-[15px] sm:text-base text-neutral-900">
                       {faq.question}
                     </span>
-                    <span className="ml-4 flex items-center justify-center w-7 h-7 rounded-full border border-neutral-300 text-neutral-500 group-hover:border-neutral-900 group-hover:text-neutral-900 transition-all shrink-0">
-                      {isOpen ? (
-                        <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <line x1="5" y1="12" x2="19" y2="12" />
-                        </svg>
-                      ) : (
-                        <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <circle cx="12" cy="12" r="1" />
-                          <line x1="12" y1="8" x2="12" y2="16" />
-                          <line x1="8" y1="12" x2="16" y2="12" />
-                        </svg>
-                      )}
+                    <span
+                      className={`flex items-center justify-center w-8 h-8 rounded-full border shrink-0 transition-all duration-300 ${isOpen ? 'bg-neutral-900 border-neutral-900 text-white rotate-45' : 'border-neutral-300 text-neutral-600 group-hover:border-neutral-900 group-hover:text-neutral-900'}`}
+                      aria-hidden="true"
+                    >
+                      <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round">
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                      </svg>
                     </span>
                   </button>
 
-                  {isOpen && (
-                    <div className="mt-3 pr-8 text-neutral-600 text-sm leading-relaxed font-light transition-all duration-300">
-                      {faq.answer}
+                  <div className={`grid transition-[grid-template-rows] duration-300 ease-out ${isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
+                    <div className="overflow-hidden" inert={!isOpen}>
+                      <p className="pb-5 pr-12 text-neutral-600 text-sm leading-relaxed font-light">
+                        {faq.answer}
+                      </p>
                     </div>
-                  )}
+                  </div>
                 </div>
               );
             })}
           </div>
         </div>
 
-        {/* Right Column: Luxury Casket Image */}
-        <div className="lg:col-span-5 flex justify-center">
-          <div className="relative w-full max-w-md lg:max-w-none rounded-2xl overflow-hidden shadow-lg aspect-[4/3] sm:aspect-[1/1] lg:aspect-[4/5] bg-neutral-100">
-            <img
-              src={casketImage}
-              alt="Ornate vintage silver jewelry box with pearls and gemstones on tray"
-              className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
-          </div>
+        {/* Image */}
+        <div className="relative aspect-[4/5] sm:aspect-[4/3] lg:aspect-auto lg:min-h-[600px] overflow-hidden bg-neutral-100 group">
+          <img
+            src={casketImage}
+            alt="Ornate vintage silver jewelry box with pearls and gemstones"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
         </div>
       </div>
     </section>

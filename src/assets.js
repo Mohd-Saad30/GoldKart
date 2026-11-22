@@ -23,11 +23,13 @@ export const bestSellingAssets = [
 export const collectionAssets = [
   allImages[4], // Category 1: Watches
   allImages[5], // Category 2: Jewelry / Rings
-  allImages[6], // Category 3: Accessories / Perfume
-  allImages[7], // Category 4: Luxury Dress
+  allImages[7], // Category 3: Emerald ring
+  allImages[3], // Category 4: Gold tennis bracelet
 ];
 
-export const craftsmanshipAsset = allImages[8]; // Timeless Craftsmanship stone display
+export const craftsmanshipAsset = allImages[0];  // Amethyst ring on a dark background (zoomed to hide black bars)
 export const sustainabilityAsset = allImages[9]; // Sustainability banner woman with earring
-export const faqsAsset = allImages[10];           // FAQs antique silver jewelry casket
+export const faqsAsset = allImages[2];            // Diamond cluster pendant
 export const heroVideo = allVideos[0];           // Video asset for Hero
+export const heroSideAssets = [allImages[8], allImages[6]]; // Hero side panels: butterfly ring, pink pear ring
+export const heroMainAsset = allImages[10]; // Hero main panel: model wearing the diamond necklace set

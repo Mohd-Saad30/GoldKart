@@ -24,7 +24,7 @@ const reviews = [
   {
     id: 3,
     quote:
-      "This was one of the best online shopping experiences I've had. The jewelry arrived beautifully presented, and the quality is outstanding. I've received so many compliments and will definitely purchase again!",
+      "Visiting the store was a wonderful experience. The team took the time to show me every piece I'd seen in the catalogue, and the quality is outstanding. I've received so many compliments and will definitely be back!",
     name: "Olivia Caldwell",
     role: "Interior Decorator",
     avatar:
@@ -35,10 +35,10 @@ const reviews = [
 
 export default function Review() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section className="py-24 lg:py-32 px-5 sm:px-8 lg:px-12">
       {/* Section Header */}
-      <div className="mb-14">
-        <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-serif font-normal text-neutral-900 tracking-tight leading-tight">
+      <div className="mb-12 lg:mb-16">
+        <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-serif font-normal text-neutral-900 tracking-tight leading-tight">
           What our customers say about us
         </h2>
         <p className="mt-3 text-sm sm:text-base text-neutral-500 max-w-2xl font-light leading-relaxed">
@@ -47,46 +47,41 @@ export default function Review() {
       </div>
 
       {/* Reviews Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5">
         {reviews.map((item) => (
-          <div
+          <figure
             key={item.id}
-            className="group relative bg-white rounded-xl p-8 sm:p-9 border border-neutral-200/80 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_-4px_rgba(0,0,0,0.08)] hover:border-neutral-300 transition-all duration-300 flex flex-col justify-between"
+            className="group relative bg-white p-8 sm:p-10 border border-neutral-200 hover:border-neutral-900 transition-colors duration-300 flex flex-col justify-between min-h-[340px]"
           >
             {/* Top quote mark */}
-            <div className="flex justify-end mb-4">
-              <span className="text-neutral-800 text-3xl font-serif leading-none select-none">
-                <svg
-                  className="w-8 h-8 text-neutral-800 fill-current opacity-90"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-              </span>
+            <div className="flex justify-end mb-6">
+              <svg className="w-9 h-9 text-neutral-900 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+              </svg>
             </div>
 
             {/* Quote content */}
-            <p className="text-neutral-600 text-[14.5px] leading-relaxed font-light mb-8 italic">
-              "{item.quote}"
-            </p>
+            <blockquote className="text-neutral-700 text-[15px] leading-relaxed font-light mb-10">
+              “{item.quote}”
+            </blockquote>
 
             {/* Author info */}
-            <div className="flex items-center gap-3.5 pt-4 border-t border-neutral-100">
+            <figcaption className="flex items-center gap-3.5 pt-5 border-t border-neutral-200">
               <img
                 src={item.avatar}
                 alt={item.name}
-                className="w-11 h-11 rounded-full object-cover ring-2 ring-neutral-100"
+                className="w-11 h-11 rounded-full object-cover grayscale group-hover:grayscale-0 transition duration-500"
               />
               <div>
-                <h4 className="text-sm font-semibold text-neutral-900 tracking-wide">
+                <h4 className="font-serif text-base text-neutral-900">
                   {item.name}
                 </h4>
-                <p className="text-xs text-neutral-400 font-light mt-0.5">
+                <p className="text-xs text-neutral-500 font-light mt-0.5">
                   {item.role}
                 </p>
               </div>
-            </div>
-          </div>
+            </figcaption>
+          </figure>
         ))}
       </div>
     </section>

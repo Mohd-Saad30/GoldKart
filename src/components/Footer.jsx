@@ -1,114 +1,100 @@
 import React from 'react';
 
+const displayFont = { fontFamily: "'Bodoni Moda', 'Didot', 'Playfair Display', Georgia, serif" };
+
+const columns = [
+  {
+    title: 'CARAVELLE',
+    brand: true,
+    links: ['Jewelry', 'Collection', 'New arrivals', 'About us'],
+  },
+  {
+    title: 'Customer service',
+    links: ['Contact us', 'Book an appointment', 'Advice and service'],
+  },
+  {
+    title: 'Visit',
+    links: ['Store location', 'Opening hours', 'Size guide', 'Warranty and care'],
+  },
+];
+
+const socials = ['Instagram', 'Facebook', 'Pinterest', 'YouTube'];
+
+const toHref = (label) => `#${label.toLowerCase().replace(/\s+/g, '-')}`;
+
 export default function Footer() {
   return (
-    <footer className="bg-[#111111] text-neutral-300 pt-20 pb-12 border-t border-neutral-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main 4-column footer */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-16 border-b border-neutral-800">
-          {/* Brand info */}
-          <div className="lg:col-span-2">
-            <h3 className="font-serif text-3xl tracking-widest text-white uppercase mb-4">
-              GoldKart
+    <footer id="contact" className="bg-neutral-950 text-neutral-400 mt-6 overflow-hidden">
+      <div className="px-5 sm:px-8 lg:px-12 pt-24 pb-12">
+        {/* Visit the store + link columns */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_2fr] gap-14 pb-16 border-b border-neutral-800">
+          <div>
+            <h3 className="font-serif text-3xl sm:text-4xl text-white font-normal tracking-tight leading-tight max-w-sm">
+              Visit us in store
             </h3>
-            <p className="text-sm text-neutral-400 font-light leading-relaxed max-w-sm mb-6">
-              Exquisite haute joaillerie handcrafted by master artisans. Celebrating beauty, ethical craftsmanship, and timeless radiance.
-            </p>
-            <div className="flex items-center gap-4 text-neutral-400">
-              <span className="text-xs tracking-wider uppercase text-neutral-500 font-medium">
-                Follow Us:
-              </span>
-              <div className="flex gap-3">
-                {['Instagram', 'Facebook', 'Pinterest', 'YouTube'].map((social) => (
-                  <a
-                    key={social}
-                    href={`#${social.toLowerCase()}`}
-                    className="w-8 h-8 rounded-full border border-neutral-700 flex items-center justify-center text-xs hover:border-amber-400 hover:text-amber-400 transition"
-                  >
-                    {social[0]}
-                  </a>
-                ))}
-              </div>
-            </div>
+            {/* TODO: replace with the real store address, hours and phone */}
+            <dl className="mt-8 grid grid-cols-[auto_1fr] gap-x-8 gap-y-3 text-sm font-light max-w-md">
+              <dt className="text-white">Address</dt>
+              <dd>Store address, city</dd>
+              <dt className="text-white">Hours</dt>
+              <dd>Opening hours</dd>
+              <dt className="text-white">Phone</dt>
+              <dd>Phone number</dd>
+            </dl>
+            <a
+              href="#book-an-appointment"
+              className="mt-8 inline-block px-7 py-3 bg-white text-neutral-950 hover:bg-neutral-200 text-xs tracking-wider uppercase font-medium transition"
+            >
+              Book an appointment
+            </a>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-xs font-semibold tracking-widest uppercase text-white mb-4">
-              Shop
-            </h4>
-            <ul className="space-y-2.5 text-sm font-light text-neutral-400">
-              {['Shop All', 'Jewelry', 'Necklaces', 'Bracelets', 'Rings', 'Earrings', 'Special Offers'].map((link) => (
-                <li key={link}>
-                  <a href={`#${link}`} className="hover:text-amber-300 transition-colors">
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Customer Service */}
-          <div>
-            <h4 className="text-xs font-semibold tracking-widest uppercase text-white mb-4">
-              Customer Service
-            </h4>
-            <ul className="space-y-2.5 text-sm font-light text-neutral-400">
-              {['Contact Us', 'Delivery & Returns', 'Size Guide', 'Ring Sizer', 'FAQs', 'Track Your Order', 'Warranty & Care'].map((link) => (
-                <li key={link}>
-                  <a href={`#${link}`} className="hover:text-amber-300 transition-colors">
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div>
-            <h4 className="text-xs font-semibold tracking-widest uppercase text-white mb-4">
-              News & Updates
-            </h4>
-            <p className="text-xs text-neutral-400 font-light leading-relaxed mb-4">
-              Subscribe to receive exclusive access to new releases, private sales, and jewelry care tips.
-            </p>
-            <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-2.5">
-              <div className="relative">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="w-full px-4 py-2.5 bg-neutral-900 border border-neutral-700 rounded-lg text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-amber-400 transition"
-                />
-                <button
-                  type="submit"
-                  aria-label="Subscribe"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded bg-amber-500 hover:bg-amber-400 text-neutral-950 flex items-center justify-center transition"
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-10">
+            {columns.map((col) => (
+              <div key={col.title}>
+                <h4
+                  style={col.brand ? displayFont : undefined}
+                  className={col.brand ? 'text-xl tracking-[0.12em] text-white mb-5' : 'font-serif text-xl text-white mb-5'}
                 >
-                  →
-                </button>
+                  {col.title}
+                </h4>
+                <ul className="space-y-3 text-sm font-light">
+                  {col.links.map((link) => (
+                    <li key={link}>
+                      <a href={toHref(link)} className="hover:text-white transition-colors">
+                        {link}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <span className="text-[11px] text-neutral-500 font-light">
-                By subscribing, you agree to our Privacy Policy.
-              </span>
-            </form>
+            ))}
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500 font-light">
-          <div>
-            © 2026 GoldKart Jewelry Inc. All rights reserved.
+        {/* Socials and legal */}
+        <div className="pt-8 flex flex-col md:flex-row md:items-center justify-between gap-6 text-xs font-light">
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            {socials.map((s) => (
+              <a key={s} href={toHref(s)} className="hover:text-white transition-colors">
+                {s}
+              </a>
+            ))}
           </div>
-          <div className="flex gap-6">
-            <a href="#privacy" className="hover:text-neutral-300 transition">Privacy Policy</a>
-            <a href="#terms" className="hover:text-neutral-300 transition">Terms of Service</a>
-            <a href="#cookies" className="hover:text-neutral-300 transition">Cookie Settings</a>
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            <a href="#privacy" className="hover:text-white transition">Privacy policy</a>
+            <a href="#terms" className="hover:text-white transition">Terms of service</a>
+            <span>© 2026 Caravelle Jewellery</span>
           </div>
-          <div className="flex items-center gap-2 text-neutral-400">
-            <span>USD ($)</span>
-            <span>•</span>
-            <span>English</span>
-          </div>
+        </div>
+
+        {/* Oversized wordmark */}
+        <div
+          style={displayFont}
+          aria-hidden="true"
+          className="mt-14 text-white/90 text-[12vw] leading-[0.8] tracking-[0.04em] text-center select-none"
+        >
+          CARAVELLE
         </div>
       </div>
     </footer>
