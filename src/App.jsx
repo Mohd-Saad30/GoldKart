@@ -25,7 +25,7 @@ function App() {
         <BestSelling />
       </div>
 
-      {/* 4. Exploring Li Veblall Creation */}
+      {/* 4. Exploring GoldKart Creation */}
       <Collection />
 
       {/* 5. Timeless Craftsmanship */}

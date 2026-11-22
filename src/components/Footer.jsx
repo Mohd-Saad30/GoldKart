@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Brand info */}
           <div className="lg:col-span-2">
             <h3 className="font-serif text-3xl tracking-widest text-white uppercase mb-4">
-              Li Veblall
+              GoldKart
             </h3>
             <p className="text-sm text-neutral-400 font-light leading-relaxed max-w-sm mb-6">
               Exquisite haute joaillerie handcrafted by master artisans. Celebrating beauty, ethical craftsmanship, and timeless radiance.
@@ -97,7 +97,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500 font-light">
           <div>
-            © 2026 Li Veblall Jewelry Inc. All rights reserved.
+            © 2026 GoldKart Jewelry Inc. All rights reserved.
           </div>
           <div className="flex gap-6">
             <a href="#privacy" className="hover:text-neutral-300 transition">Privacy Policy</a>
