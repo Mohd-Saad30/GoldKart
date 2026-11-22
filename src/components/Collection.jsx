@@ -31,33 +31,29 @@ const collections = [
 export default function Collection() {
   return (
     <section className="py-24 lg:py-32 px-5 sm:px-8 lg:px-12">
-      {/* Header with title and view-all link */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 lg:mb-16 gap-6">
-        <div>
-          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-serif font-normal text-neutral-900 tracking-tight leading-tight">
-            Exploring Caravelle creations
-          </h2>
-          <p className="mt-4 text-sm sm:text-base text-neutral-500 max-w-xl font-light leading-relaxed">
-            Explore refined designs crafted with precision and premium materials. Timeless beauty made to be treasured for generations.
-          </p>
-        </div>
-
+      {/* Centred header */}
+      <div className="text-center max-w-2xl mx-auto mb-14 lg:mb-20">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#171717] tracking-tight leading-[1.15]">
+          Explore our collection.
+          <br />
+          <span className="italic">Discover the detail in every piece.</span>
+        </h2>
         <a
           href="#collection"
-          className="self-start md:self-auto px-7 py-3 border border-neutral-900 text-xs tracking-wider uppercase font-medium text-neutral-900 hover:bg-neutral-900 hover:text-white transition duration-300 shrink-0"
+          className="mt-8 inline-block px-7 py-3 border border-[#171717] text-xs tracking-wider uppercase font-medium text-[#171717] hover:bg-[#171717] hover:text-white transition duration-300"
         >
-          View all collection
+          View the catalogue
         </a>
       </div>
 
-      {/* Category grid: image only, details slide up on hover */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-5">
+      {/* Category grid: framed images, details slide up on hover */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 lg:gap-6">
         {collections.map((item) => (
           <a
             key={item.id}
             href="#collection"
             aria-label={`${item.title}: ${item.desc}`}
-            className="group relative block aspect-[4/5] bg-neutral-200 overflow-hidden outline-none focus-visible:ring-1 focus-visible:ring-neutral-900 focus-visible:ring-offset-4"
+            className="group relative block aspect-[4/5] bg-neutral-200 overflow-hidden outline outline-[10px] outline-white outline-offset-0 focus-visible:ring-1 focus-visible:ring-[#171717] focus-visible:ring-offset-[14px]"
           >
             {/* Slight zoom crops the black bars baked into some photos */}
             <img

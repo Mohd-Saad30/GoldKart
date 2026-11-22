@@ -1,41 +1,39 @@
 import React from 'react';
-import { sustainabilityAsset, allImages } from '../assets';
 
+const displayFont = { fontFamily: "'Bodoni Moda', 'Didot', 'Playfair Display', Georgia, serif" };
+
+// Full-bleed black story band with an oversized monogram behind the copy.
 export default function Sustainability() {
-  const bannerImage =
-    sustainabilityAsset ||
-    allImages[9] ||
-    "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1920&q=85";
-
   return (
-    <section className="px-5 sm:px-8 lg:px-12 py-10 lg:py-16">
-      <div className="grid grid-cols-1 lg:grid-cols-2 bg-neutral-950 text-white overflow-hidden">
-        {/* Copy */}
-        <div className="flex flex-col justify-center gap-8 p-10 sm:p-14 lg:p-20 order-2 lg:order-1">
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight leading-[1.1] max-w-xl">
-            Fostering water sustainability while celebrating global beauty
-          </h2>
-          <p className="text-sm text-neutral-400 font-light leading-relaxed max-w-md">
-            The Hug for Universal Goodness diamond ring: responsibly made, and designed to honour the people and places behind every stone.
-          </p>
-          <div>
-            <a
-              href="#collection"
-              className="inline-block px-7 py-3 border border-white/60 text-white hover:bg-white hover:text-neutral-950 text-xs tracking-wider uppercase font-medium transition duration-300"
-            >
-              View details
-            </a>
-          </div>
-        </div>
+    <section className="relative overflow-hidden bg-neutral-950 text-white">
+      {/* Oversized monogram */}
+      <div
+        aria-hidden="true"
+        style={displayFont}
+        className="pointer-events-none select-none absolute inset-x-0 top-1/2 -translate-y-[58%] text-center leading-none text-white/[0.06] text-[70vw] sm:text-[52vw] lg:text-[38vw]"
+      >
+        C
+      </div>
 
-        {/* Image */}
-        <div className="relative min-h-[320px] sm:min-h-[420px] lg:min-h-[520px] order-1 lg:order-2 overflow-hidden group">
-          <img
-            src={bannerImage}
-            alt="Woman wearing statement crystal earrings"
-            className="absolute inset-0 w-full h-full object-cover object-[center_35%]"
-          />
-        </div>
+      <div className="relative px-5 sm:px-8 lg:px-12 py-28 lg:py-40 flex flex-col items-center text-center">
+        <span style={displayFont} className="text-6xl sm:text-7xl text-[#d8c48f] leading-none">C</span>
+
+        <h2 className="mt-10 font-serif text-3xl sm:text-4xl lg:text-[52px] font-normal tracking-tight leading-[1.15] max-w-3xl">
+          Fostering water sustainability
+          <br />
+          <span className="italic">while celebrating global beauty</span>
+        </h2>
+
+        <p className="mt-8 text-sm sm:text-base text-neutral-400 font-light leading-relaxed max-w-xl">
+          The Hug for Universal Goodness diamond ring: responsibly made, and designed to honour the people and places behind every stone.
+        </p>
+
+        <a
+          href="#collection"
+          className="mt-10 inline-block px-8 py-3 border border-white/60 text-white hover:bg-white hover:text-neutral-950 text-xs tracking-wider uppercase font-medium transition duration-300"
+        >
+          View details
+        </a>
       </div>
     </section>
   );

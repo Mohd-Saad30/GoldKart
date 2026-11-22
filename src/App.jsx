@@ -6,6 +6,7 @@ import Craftsmanship from './components/Craftsmanship';
 import Sustainability from './components/Sustainability';
 import Review from './components/Review';
 import FAQs from './components/FAQs';
+import Marquee from './components/Marquee';
 import Footer from './components/Footer';
 
 function App() {
@@ -22,10 +23,13 @@ function App() {
         <Collection />
       </div>
 
+      {/* 4. Scrolling strip */}
+      <Marquee />
+
       {/* 5. Timeless Craftsmanship */}
       <Craftsmanship />
 
-      {/* 6. Sustainability Banner */}
+      {/* 6. Black story band */}
       <Sustainability />
 
       {/* 7. Reviews / Testimonials */}
