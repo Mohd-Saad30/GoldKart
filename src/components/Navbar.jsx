@@ -298,7 +298,7 @@ export default function Navbar({ cartCount = 0 }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="relative z-50 bg-white">
+    <header className="relative z-50 bg-[#ded8cf]">
       {/* Row 1: search | logo | account + cart */}
       <div className="border-b border-neutral-900/70">
         <div className="mx-auto grid h-20 max-w-[1400px] grid-cols-[1fr_auto_1fr] items-center px-5 sm:px-10 md:h-24">

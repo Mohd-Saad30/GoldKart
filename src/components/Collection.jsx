@@ -39,7 +39,7 @@ export default function Collection() {
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <div>
           <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-serif font-normal text-neutral-900 tracking-tight leading-tight">
-            Exploring Li Veblall Creation
+           Explore our collection
           </h2>
           <p className="mt-3 text-sm sm:text-base text-neutral-500 max-w-xl font-light leading-relaxed">
             Explore refined designs crafted with precision and premium materials. Timeless beauty made to be treasured for generations.
