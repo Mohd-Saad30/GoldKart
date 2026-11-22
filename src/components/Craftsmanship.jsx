@@ -1,6 +1,12 @@
 import React from 'react';
+import { craftsmanshipAsset, allImages } from '../assets';
 
 export default function Craftsmanship() {
+  const imageSrc =
+    craftsmanshipAsset ||
+    allImages[8] ||
+    "https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=1000&q=80";
+
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -11,7 +17,7 @@ export default function Craftsmanship() {
           </h2>
 
           <p className="mt-6 text-sm sm:text-base text-neutral-600 font-light leading-relaxed">
-            Every piece we create is an ode to traditional and modern jewelry artistry. Meticulously shaped by master artisans, we select only the finest ethically sourced materials. From everyday elegance to grand celebrations, we bring you jewelry designed to transcend generations.
+            Every piece we create is a reflection of artistry and precision. Our jewellery is crafted using ethically sourced materials and designed to celebrate life's most meaningful moments. From concept to creation, we focus on delivering elegance that lasts forever.
           </p>
 
           <div className="mt-8 flex items-baseline gap-3">
@@ -25,16 +31,16 @@ export default function Craftsmanship() {
 
           <div className="mt-8">
             <button className="px-7 py-3 rounded-full bg-neutral-900 hover:bg-neutral-800 text-white text-xs tracking-wider uppercase font-medium transition duration-300 shadow-sm">
-              Learn More
+              See More
             </button>
           </div>
         </div>
 
-        {/* Right Column: High-end Still Life Jewelry on Stone */}
+        {/* Right Column: Still Life Jewelry on Stone */}
         <div className="lg:col-span-6">
           <div className="relative rounded-2xl overflow-hidden aspect-[4/3] sm:aspect-[16/11] shadow-xl bg-neutral-900 group">
             <img
-              src="https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=1000&q=80"
+              src={imageSrc}
               alt="Timeless gold hoop earring and textured sculptural stone"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />

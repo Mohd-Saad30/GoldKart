@@ -1,40 +1,37 @@
 import React, { useState } from 'react';
+import { bestSellingAssets, allImages } from '../assets';
 
 const products = [
   {
     id: 1,
-    name: "HEART COLLAR PENDANT",
-    price: "$320.00",
-    originalPrice: "$380.00",
-    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80",
-    tag: "BESTSELLER",
+    name: "HAPPY DIAMONDS HORSE",
+    subtitle: "Pendant, Ethical Rose Gold Diamonds Sapphire",
+    price: "$4,420.00",
+    image: bestSellingAssets[0] || allImages[0] || "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80",
     isLiked: false,
   },
   {
     id: 2,
-    name: "BLOSSOM CHOKER NECKLACE",
-    price: "$450.00",
-    originalPrice: null,
-    image: "https://revadiamonds.com/cdn/shop/files/DNL7235-2.jpg?v=1779427391&width=832",
-    tag: "NEW",
+    name: "HAPPY DIAMONDS FISH",
+    subtitle: "Pendant, Ethical Rose Gold Diamonds Sapphire",
+    price: "$3,420.00",
+    image: bestSellingAssets[1] || allImages[1] || "https://images.unsplash.com/photo-1611591475879-11277a16f272?auto=format&fit=crop&w=600&q=80",
     isLiked: false,
   },
   {
     id: 3,
-    name: "HEART PENDANT NECKLACE",
-    price: "$380.00",
-    originalPrice: null,
-    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=600&q=80",
-    tag: null,
+    name: "HAPPY DIAMONDS FISH",
+    subtitle: "Pendant, Ethical White Gold Diamonds Sapphire",
+    price: "$3,420.00",
+    image: bestSellingAssets[2] || allImages[2] || "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=600&q=80",
     isLiked: false,
   },
   {
     id: 4,
-    name: "ROPE BRACELET",
-    price: "$290.00",
-    originalPrice: "$340.00",
-    image: "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=600&q=80",
-    tag: "POPULAR",
+    name: "HAPPY GOLD RING",
+    subtitle: "Pendant, Ethical Rose Gold Diamonds Sapphire",
+    price: "$2,890.00",
+    image: bestSellingAssets[3] || allImages[3] || "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=600&q=80",
     isLiked: true,
   },
 ];
@@ -59,7 +56,7 @@ export default function BestSelling() {
             Best Selling Products
           </h2>
           <p className="mt-3 text-sm sm:text-base text-neutral-500 max-w-xl font-light leading-relaxed">
-            Discover our carefully selected best-selling pieces, each chosen for its exceptional craftsmanship, timeless quality, and subtle elegance.
+            Elevate your style with our best-selling jewelry collection. Timeless designs, premium quality, and unmatched craftsmanship.
           </p>
         </div>
 
@@ -76,19 +73,12 @@ export default function BestSelling() {
             className="group relative flex flex-col bg-white rounded-2xl overflow-hidden border border-neutral-100 hover:border-neutral-300 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_-6px_rgba(0,0,0,0.08)] transition-all duration-300"
           >
             {/* Image Container */}
-            <div className="relative aspect-[3/4] bg-[#f7f6f2] overflow-hidden flex items-center justify-center">
+            <div className="relative aspect-[3/4] bg-[#f7f6f2] overflow-hidden flex items-center justify-center p-4">
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
               />
-
-              {/* Tag */}
-              {product.tag && (
-                <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[10px] tracking-widest font-semibold uppercase px-2.5 py-1 rounded-full text-neutral-800 shadow-xs">
-                  {product.tag}
-                </span>
-              )}
 
               {/* Wishlist Heart Icon */}
               <button
@@ -114,18 +104,16 @@ export default function BestSelling() {
 
             {/* Product Meta */}
             <div className="p-4 sm:p-5 flex flex-col items-center text-center">
-              <h3 className="font-serif text-[15px] sm:text-base font-medium tracking-wide text-neutral-900 line-clamp-1">
+              <h3 className="font-serif text-[14px] sm:text-[15px] font-semibold tracking-wider text-neutral-900 line-clamp-1 uppercase">
                 {product.name}
               </h3>
-              <div className="mt-1.5 flex items-center gap-2">
+              <p className="text-[11px] text-neutral-500 font-light mt-1 line-clamp-1">
+                {product.subtitle}
+              </p>
+              <div className="mt-2 flex items-center gap-2">
                 <span className="text-sm font-semibold text-neutral-900">
                   {product.price}
                 </span>
-                {product.originalPrice && (
-                  <span className="text-xs text-neutral-400 line-through">
-                    {product.originalPrice}
-                  </span>
-                )}
               </div>
             </div>
           </div>

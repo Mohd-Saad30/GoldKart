@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { faqsAsset, allImages } from '../assets';
 
 const faqs = [
   {
@@ -15,9 +16,9 @@ const faqs = [
   },
   {
     id: 3,
-    question: "How do I care for and clean my jewelry?",
+    question: "How long does custom jewelry take?",
     answer:
-      "To preserve brilliance, clean gently with warm water, mild fragrance-free soap, and a soft microfiber cloth. Avoid exposure to harsh perfumes, chlorine, and abrasive chemicals.",
+      "Custom jewelry design typically takes 2 to 4 weeks depending on the complexity of the design, gemstone selection, and client approval stages.",
   },
   {
     id: 4,
@@ -47,6 +48,11 @@ export default function FAQs() {
       item.answer.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const casketImage =
+    faqsAsset ||
+    allImages[10] ||
+    "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80";
+
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -58,7 +64,7 @@ export default function FAQs() {
             Questions
           </h2>
           <p className="mt-3 text-sm sm:text-base text-neutral-500 font-light leading-relaxed max-w-xl">
-            Find answers to quick questions on authentication, craftsmanship, shipping, and maintenance of your pieces.
+            Explore helpful information about our collections, craftsmanship, shipping, and services—all in one place.
           </p>
 
           {/* Search Bar */}
@@ -66,7 +72,7 @@ export default function FAQs() {
             <div className="relative flex-1">
               <input
                 type="text"
-                placeholder="Search by question here..."
+                placeholder="hello@yourmail.com"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full px-5 py-3 rounded-full border border-neutral-300 bg-white text-sm text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-1 focus:ring-neutral-800 transition"
@@ -97,8 +103,9 @@ export default function FAQs() {
                         </svg>
                       ) : (
                         <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <line x1="12" y1="5" x2="12" y2="19" />
-                          <line x1="5" y1="12" x2="19" y2="12" />
+                          <circle cx="12" cy="12" r="1" />
+                          <line x1="12" y1="8" x2="12" y2="16" />
+                          <line x1="8" y1="12" x2="16" y2="12" />
                         </svg>
                       )}
                     </span>
@@ -119,11 +126,10 @@ export default function FAQs() {
         <div className="lg:col-span-5 flex justify-center">
           <div className="relative w-full max-w-md lg:max-w-none rounded-2xl overflow-hidden shadow-lg aspect-[4/3] sm:aspect-[1/1] lg:aspect-[4/5] bg-neutral-100">
             <img
-              src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80"
-              alt="Ornate silver jewelry box with pearls and gold treasures"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              src={casketImage}
+              alt="Ornate vintage silver jewelry box with pearls and gemstones on tray"
+              className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-700"
             />
-            {/* Subtle radial lighting overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
           </div>
         </div>
